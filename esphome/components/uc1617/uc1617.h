@@ -46,7 +46,6 @@ class UC1617 : public display::DisplayBuffer,
   void fill(Color color) override;
 
   void setup() override {
-    this->setup_pins_();
     this->initialize();
   }
 
@@ -55,12 +54,6 @@ class UC1617 : public display::DisplayBuffer,
  protected:
 
   void draw_absolute_pixel_internal(int x, int y, Color color) override;
-
-  void setup_pins_();
-
-  void init_reset_();
-
-  size_t get_buffer_length_();
 
   void start_command_();
   void end_command_();

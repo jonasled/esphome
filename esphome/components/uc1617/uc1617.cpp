@@ -10,13 +10,8 @@ static const char *const TAG = "UC1617";
 
 ::U8G2_UC1617_JLX128128_F_4W_HW_SPI u8g2(U8G2_R1, 38, 39);
 
-void UC1617::setup_pins_() {
-  this->spi_setup();
-  this->init_reset_();
-}
-
 void UC1617::initialize() {
-  this->init_internal_(this->get_buffer_length_());
+  this->init_internal_(0);
   this->enable();
   u8g2.begin();
   u8g2.clear();
