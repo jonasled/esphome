@@ -54,8 +54,6 @@ class UC1617 : public display::DisplayBuffer,
 
  protected:
 
-  U8G2_UC1617_JLX128128_F_4W_HW_SPI u8g2;
-
   void draw_absolute_pixel_internal(int x, int y, Color color) override;
 
   void setup_pins_();
