@@ -6,7 +6,7 @@
 namespace esphome {
 namespace UC1617 {
 
-static const char *const TAG = "uc1617";
+static const char *const TAG = "UC1617";
 
 U8G2_UC1617_JLX128128_F_4W_HW_SPI u8g2(U8G2_R1, 38, 39);
 
