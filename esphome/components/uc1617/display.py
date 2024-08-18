@@ -3,11 +3,9 @@ import esphome.config_validation as cv
 from esphome import pins
 from esphome.components import display, spi
 from esphome.const import (
-    CONF_DC_PIN,
     CONF_ID,
     CONF_LAMBDA,
     CONF_PAGES,
-    CONF_RESET_PIN,
     CONF_CS_PIN,
     CONF_CONTRAST,
 )
