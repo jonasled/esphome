@@ -31,8 +31,6 @@ class UC1617 : public display::DisplayBuffer,
   const uint8_t UC1617_SETVOP = 0x80;
   uint8_t contrast_;
 
-  void set_dc_pin(GPIOPin *dc_pin) { this->dc_pin_ = dc_pin; }
-  void set_reset_pin(GPIOPin *reset) { this->reset_pin_ = reset; }
   void set_contrast(uint8_t contrast) { this->contrast_ = contrast; }
   float get_setup_priority() const override { return setup_priority::PROCESSOR; }
 
@@ -74,8 +72,6 @@ class UC1617 : public display::DisplayBuffer,
   int get_width_internal() override;
   int get_height_internal() override;
 
-  GPIOPin *reset_pin_;
-  GPIOPin *dc_pin_;
 };
 
 }  // namespace UC1617
