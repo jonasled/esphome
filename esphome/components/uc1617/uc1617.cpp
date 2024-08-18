@@ -13,7 +13,6 @@ U8G2_UC1617_JLX128128_F_4W_HW_SPI u8g2(U8G2_R1, LCD_CS_PIN, LCD_CD_PIN);
 void UC1617::setup_pins_() {
   this->spi_setup();
   this->init_reset_();
-  this->dc_pin_->setup();
 }
 
 void UC1617::initialize() {
@@ -39,8 +38,6 @@ void HOT UC1617::draw_absolute_pixel_internal(int x, int y, Color color) {
 
 void UC1617::dump_config() {
   LOG_DISPLAY("", "UC1617", this);
-  LOG_PIN("  DC Pin: ", this->dc_pin_);
-  LOG_PIN("  Reset Pin: ", this->reset_pin_);
   LOG_UPDATE_INTERVAL(this);
 }
 
