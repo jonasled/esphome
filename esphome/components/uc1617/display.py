@@ -24,8 +24,6 @@ CONFIG_SCHEMA = cv.All(
     display.FULL_DISPLAY_SCHEMA.extend(
         {
             cv.GenerateID(): cv.declare_id(uc1617),
-            cv.Required(CONF_DC_PIN): pins.gpio_output_pin_schema,
-            cv.Required(CONF_RESET_PIN): pins.gpio_output_pin_schema,
             cv.Required(CONF_CS_PIN): pins.gpio_output_pin_schema,  # CE
             cv.Optional(CONF_CONTRAST, default=0x7F): cv.int_,
         }
@@ -41,11 +39,6 @@ async def to_code(config):
 
     await display.register_display(var, config)
     await spi.register_spi_device(var, config)
-
-    dc = await cg.gpio_pin_expression(config[CONF_DC_PIN])
-    cg.add(var.set_dc_pin(dc))
-    reset = await cg.gpio_pin_expression(config[CONF_RESET_PIN])
-    cg.add(var.set_reset_pin(reset))
 
     cg.add(var.set_contrast(config[CONF_CONTRAST]))
 
