@@ -12,9 +12,9 @@ from esphome.const import (
 
 DEPENDENCIES = ["spi"]
 
-uc1617_ns = cg.esphome_ns.namespace("uc1617")
+uc1617_ns = cg.esphome_ns.namespace("UC1617")
 uc1617 = uc1617_ns.class_(
-    "uc1617", cg.PollingComponent, display.DisplayBuffer, spi.SPIDevice
+    "UC1617", cg.PollingComponent, display.DisplayBuffer, spi.SPIDevice
 )
 
 
