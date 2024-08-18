@@ -15,6 +15,7 @@ void UC1617::initialize() {
   this->enable();
   u8g2.begin();
   u8g2.clear();
+  ESP_LOGD("uc1617", "Init Done");
 }
 
 int UC1617::get_width_internal() { return 128; }
@@ -29,6 +30,10 @@ void HOT UC1617::draw_absolute_pixel_internal(int x, int y, Color color) {
 
   u8g2.setDrawColor(color.is_on());
   u8g2.drawPixel(x, y);
+  char xstr[16];
+  char ystr[16];
+  char cstr[16];
+  ESP_LOGD("uc1617", "Drawing pixel %d, %d with %d", x, y, color.is_on());
 }
 
 void UC1617::dump_config() {
@@ -36,9 +41,13 @@ void UC1617::dump_config() {
   LOG_UPDATE_INTERVAL(this);
 }
 
-void UC1617::update() { u8g2.sendBuffer(); }
+void UC1617::update() { 
+  u8g2.sendBuffer();
+  ESP_LOGD("uc1617", "Update");
+}
 
 void UC1617::fill(Color color) {
+  ESP_LOGD("uc1617", "Fill complete");
   u8g2.setDrawColor(color.is_on());
   for (int x = 0; x++; x < 128) {
     for (int y = 0; y++; y < 128) {
